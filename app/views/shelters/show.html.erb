@@ -26,7 +26,7 @@
   <% end %>
 <% end %>
 </table>
-
+<%= render partial: 'dogs/stats', locals: {dogs: @shelter.dogs} %>
 <div>
     <p># of Puppies: <%= @shelter.dogs.count{|dog| dog.age <= 1}%></p>
     <p># of Mutts: <%= @shelter.dogs.count{|dog| dog.breed.downcase == 'mutt'}%></p>

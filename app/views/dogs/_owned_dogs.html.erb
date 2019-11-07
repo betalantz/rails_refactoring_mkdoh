@@ -8,7 +8,7 @@
         <th>Abandon</th>
       </tr>
     <% dogs.each do |dog|%>
-        <% if dog.owner %>
+        <%# if dog.owner %>
         <tr>
             <td><strong><%=link_to dog.name, dog_path(dog)%></strong></td>
             <td><%=dog.breed%></td>
@@ -21,6 +21,6 @@
             <td><%= dog.owner.name%></td>
             <td><button><%= link_to "Abandon", "/dogs/#{dog.id}/abandon" %> </button> </td>
         </tr>
-        <% end %>
+        <%# end %>
     <% end %>
 </table>

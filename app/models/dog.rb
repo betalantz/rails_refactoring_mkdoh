@@ -5,4 +5,13 @@ class Dog < ApplicationRecord
   validates :name, presence: true
   validates :age, presence: true
   validates :breed, presence: true
+
+  def self.owned
+    where(shelter_id: nil)
+  end
+
+  def self.adoptable
+    where(owner_id: nil)
+  end
+
 end

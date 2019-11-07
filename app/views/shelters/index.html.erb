@@ -3,32 +3,6 @@
 <% Shelter.all.each do |shelter| %>
   <h3><%= link_to shelter.name, shelter_path(shelter) %></h3>
 
-  <table>
-    <tr>
-      <th>Name</th>
-      <th>Breed</th>
-      <th>Age</th>
-      <th>Sex</th>
-      <th>Shelter</th>
-      <th>Adopt</th>
-    </tr>
-  <% shelter.dogs.each do |dog|%>
-    <% if !dog.owner %>
-    <tr>
-      <td><strong><%= link_to dog.name, dog_path(dog) %></strong></td>
-      <td><%=dog.breed%></td>
-      <td><%= dog.age%></td>
-      <% if dog.sex == 'M' %>
-      <td>male</td>
-      <% else %>
-      <td>female</td>
-      <% end %>
-      <td><%= dog.shelter.name %></td>
-      <td><button><%= link_to "Adopt Me!", "/dogs/#{dog.id}/adopt" %> </button> </td>
-    </tr>
-    <% end %>
-  <% end %>
-  </table>
-  
+<%= render partial: 'dogs/shelter_dogs', locals: {dogs: shelter.dogs} %>
 <%= render partial: 'dogs/stats', locals: {dogs: shelter.dogs} %>
 <% end %>

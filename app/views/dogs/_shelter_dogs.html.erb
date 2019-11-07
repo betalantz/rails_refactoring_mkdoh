@@ -13,11 +13,7 @@
     <td><strong><%=link_to dog.name, dog_path(dog)%></strong></td>
     <td><%=dog.breed%></td>
     <td><%= dog.age%></td>
-    <% if dog.sex == 'M' %>
-    <td>male</td>
-    <% else %>
-    <td>female</td>
-    <% end %>
+    <td><%= display_gender(dog) %></td>
     <td><%= link_to dog.shelter.name, shelter_path(dog.shelter) %></td>
     <td><button><a href="/dogs/<%=dog.id%>/adopt">Adopt Me!</a></button> </td>
   </tr>
